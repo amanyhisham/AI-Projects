@@ -17,8 +17,8 @@ Each project in this collection explores a different way of building with AI:<br
 |---|---------|----------|--------|-----------|
 | 1 | AI Chat by Prompt Engineering | Prompt Engineering | ✅ Live | [🔗 Open demo](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/) |
 | 2 | Luna Boutique | AI shopping assistant (Fine-Tuning Project) | ✅ Live | [🔗 Open demo](http://luna-boutique-amany.runasp.net/) |
-| 3 | RAG Project | Retrieval-Augmented Generation | 🚧 Coming soon | — |
-| 4 | AI Agent Project | AI Agents | 🚧 Coming soon | — |
+| 3 | RAG Project | Retrieval-Augmented Generation | 🛠️ In progress | — |
+| 4 | AI Agent Project | AI Agents | 🛠️ In progress | — |
 
 ---
 
@@ -82,13 +82,13 @@ Each project in this collection explores a different way of building with AI:<br
 
 ---
 
-## 3️⃣ RAG Project — 🚧 Coming Soon
+## 3️⃣ RAG Project — 🛠️ In Progress
 
 A project that will be added to this repository to apply **Retrieval-Augmented Generation**, where the AI answers from the content of custom documents instead of relying only on its built-in knowledge.
 
 ---
 
-## 4️⃣ AI Agent Project — 🚧 Coming Soon
+## 4️⃣ AI Agent Project — 🛠️ In Progress
 
 A project that will be added to this repository to apply an **AI Agent** that can plan steps and use tools to complete tasks.
 
@@ -100,12 +100,4 @@ API keys are **never** stored in this repository. Each project reads its key fro
 
 ---
 
-<div align="center">
-
-## ✍️ Author
-
-# *Amany Hesham Salah*
-
-**Junior Software Engineer · AI Application Developer**
-
-</div>
+**Author:** Amany Hesham Salah
