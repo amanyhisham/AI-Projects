@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<section class="py-5" style="background:var(--soft-beige);min-height:80vh">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Get in Touch 💌</h2>
+                    <p class="section-subtitle">We'd love to hear from you</p>
+                    <div class="title-line"></div>
+                </div>
+                <div class="bg-white rounded-4 p-5" style="box-shadow:0 10px 40px rgba(201,149,108,0.1)">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-600">First Name</label>
+                            <input type="text" class="form-control luna-input" placeholder="Your name" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-600">Last Name</label>
+                            <input type="text" class="form-control luna-input" placeholder="Your last name" />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-600">Email</label>
+                            <input type="email" class="form-control luna-input" placeholder="your@email.com" />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-600">Subject</label>
+                            <select class="form-select luna-input">
+                                <option>Order Inquiry</option>
+                                <option>Return Request</option>
+                                <option>Size Guide</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-600">Message</label>
+                            <textarea class="form-control luna-input" rows="5"
+                                      placeholder="Write your message here..."></textarea>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn-luna px-5 py-3">
+                                Send Message ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="row g-4 mt-4 text-center">
+                    <div class="col-md-4">
+                        <div class="p-4 bg-white rounded-4">
+                            <div style="font-size:2rem">📧</div>
+                            <div class="fw-bold mt-2">Email</div>
+                            <div class="text-muted small">hello@lunaboutique.com</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 bg-white rounded-4">
+                            <div style="font-size:2rem">📱</div>
+                            <div class="fw-bold mt-2">WhatsApp</div>
+                            <div class="text-muted small">+20 100 000 0000</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 bg-white rounded-4">
+                            <div style="font-size:2rem">🕐</div>
+                            <div class="fw-bold mt-2">Working Hours</div>
+                            <div class="text-muted small">Sun–Thu, 10am–8pm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .luna-input {
+        border: 1.5px solid var(--nude-pink);
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-family: 'Tajawal',sans-serif;
+    }
+
+        .luna-input:focus {
+            border-color: var(--rose-gold);
+            box-shadow: 0 0 0 3px rgba(201,149,108,0.15);
+            outline: none;
+        }
+</style>

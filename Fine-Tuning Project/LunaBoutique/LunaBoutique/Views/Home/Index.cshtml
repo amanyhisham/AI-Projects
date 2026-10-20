@@ -1,0 +1,357 @@
+﻿@model LunaBoutique.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Hero -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center" style="min-height:88vh">
+            <div class="col-lg-6 order-2 order-lg-1">
+                <p class="hero-tag">✦ New Collection 2025</p>
+                <h1 class="hero-title">
+                    Discover Your<br>
+                    <span>True</span><br>
+                    Elegance
+                </h1>
+                <p class="hero-subtitle">Luxury fashion that speaks your personality 🌙</p>
+                <div class="d-flex gap-3 flex-wrap mt-4">
+                    <a href="/Products" class="btn-luna">Shop Now</a>
+                    <a href="#new-arrivals" class="btn-luna-outline">New In</a>
+                </div>
+                <div class="hero-stats mt-5">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">2K+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <div class="hero-img-wrapper">
+                    <img src="/images/dress-withpeople.jpg"
+                         alt="Luna Fashion" class="hero-main-img" />
+                    
+                    <div class="hero-circle-1"></div>
+                    <div class="hero-circle-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="title-line"></div>
+        <div class="row g-3 justify-content-center">
+            @foreach (var cat in new[] {
+                new { img="/images/dress1.jpg", name="Dresses" },
+                new { img="/images/blouza.jpg", name="Tops" },
+                new { img="/images/trouser-withpeople.jpg", name="Trousers" },
+                new { img="/images/skirt.jpg", name="Skirts" },
+                new { img="/images/coat.jpg", name="Coats" },
+                new { img="/images/acessory.jpg", name="Accessories" }
+            })
+            {
+                <div class="col-4 col-md-2">
+                    <a href="/Products?category=@cat.name" style="text-decoration:none">
+                        <div class="category-card">
+                            <img src="@cat.img" alt="@cat.name" class="category-img" />
+                            <div class="category-name">@cat.name</div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- New Arrivals -->
+<section class="py-5" id="new-arrivals">
+    <div class="container">
+        <h2 class="section-title">New Arrivals ✨</h2>
+        <p class="section-subtitle">The latest trends this season</p>
+        <div class="title-line"></div>
+        <div class="row g-4">
+            @foreach (var product in Model.NewArrivals.Take(4))
+            {
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="@product.ImageUrl" alt="@product.Name" />
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-name">@product.Name</div>
+                            <div class="product-rating mt-1">★★★★★ <span style="color:#aaa">(@product.Rating)</span></div>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <div class="product-price">@product.Price.ToString("N0") EGP</div>
+                                <button class="btn-luna" style="padding:6px 15px;font-size:0.8rem">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Best Sellers -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="section-title">Best Sellers 🔥</h2>
+        <p class="section-subtitle">Loved by thousands of clients</p>
+        <div class="title-line"></div>
+        <div class="row g-4">
+            @foreach (var product in Model.FeaturedProducts.Take(4))
+            {
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="@product.ImageUrl" alt="@product.Name" />
+                            <span class="product-badge" style="background:#E8A000">Featured ⭐</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-name">@product.Name</div>
+                            <div class="product-rating mt-1">★★★★★ <span style="color:#aaa">(@product.Rating)</span></div>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <div class="product-price">@product.Price.ToString("N0") EGP</div>
+                                <button class="btn-luna" style="padding:6px 15px;font-size:0.8rem">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center mt-4">
+            <a href="/Products" class="btn-luna">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us -->
+<section class="py-5" style="background:linear-gradient(135deg,#F5EDE8,#E8C4B8)">
+    <div class="container">
+        <h2 class="section-title">Why Luna Boutique? 🌙</h2>
+        <div class="title-line"></div>
+        <div class="row g-4 mt-2">
+            @foreach (var f in new[] {
+                new { emoji="🚚", title="Fast Delivery", desc="2-5 business days to your door" },
+                new { emoji="↩️", title="Free Returns", desc="14-day hassle-free returns" },
+                new { emoji="💎", title="Premium Quality", desc="Carefully selected fabrics" },
+                new { emoji="✨", title="Nour AI Stylist", desc="Your personal fashion assistant" }
+            })
+            {
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 bg-white rounded-4 h-100" style="box-shadow:0 4px 15px rgba(201,149,108,0.1)">
+                        <div style="font-size:2.5rem">@f.emoji</div>
+                        <h6 class="mt-3 fw-bold" style="color:var(--text-dark)">@f.title</h6>
+                        <p class="text-muted small mb-0">@f.desc</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="section-title">What Our Clients Say 💬</h2>
+        <div class="title-line"></div>
+        <div class="row g-4">
+            @foreach (var r in new[] {
+                new { name="Sarah M.", text="Best online boutique! Amazing quality and super fast delivery 😍", stars="★★★★★" },
+                new { name="Nourhan A.", text="Nour helped me pick a full outfit for my event. Love Luna! 💕", stars="★★★★★" },
+                new { name="Mariam K.", text="Luxury fabrics at fair prices. Definitely ordering again ✨", stars="★★★★★" }
+            })
+            {
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 h-100" style="background:var(--soft-beige);box-shadow:0 4px 15px rgba(201,149,108,0.1)">
+                        <div style="color:#F4A261;font-size:1.2rem">@r.stars</div>
+                        <p class="mt-3" style="color:var(--text-dark);line-height:1.8">"@r.text"</p>
+                        <div class="fw-bold" style="color:var(--rose-gold)">— @r.name</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5" style="background:linear-gradient(135deg,var(--rose-gold),var(--deep-rose))">
+    <div class="container text-center text-white">
+        <h2 class="fw-bold mb-2">Stay in the Loop 💌</h2>
+        <p class="mb-4 opacity-75">Get the latest collections and exclusive offers</p>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="input-group">
+                    <input type="email" class="form-control rounded-end-pill"
+                           placeholder="Your email address..."
+                           style="border:none;padding:12px 20px" />
+                    <button class="btn btn-dark rounded-start-pill px-4">
+                        Subscribe ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-tag {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--rose-gold);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        line-height: 1.15;
+        letter-spacing: -1px;
+    }
+
+        .hero-title span {
+            color: var(--rose-gold);
+            font-style: italic;
+        }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        color: #8B6355;
+        margin-top: 15px;
+    }
+
+    .hero-stats {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--rose-gold);
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        color: #8B6355;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 40px;
+        background: var(--nude-pink);
+    }
+
+    .hero-img-wrapper {
+        position: relative;
+        display: inline-block;
+        padding: 20px;
+    }
+
+    .hero-main-img {
+        width: 420px;
+        height: 520px;
+        object-fit: cover;
+        border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+        box-shadow: 0 30px 80px rgba(201,149,108,0.35);
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-badge-card {
+        position: absolute;
+        bottom: 40px;
+        left: -10px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--rose-gold);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        z-index: 3;
+    }
+
+    .hero-circle-1 {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg,var(--nude-pink),var(--rose-gold));
+        opacity: 0.3;
+        z-index: 1;
+    }
+
+    .hero-circle-2 {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--rose-gold);
+        opacity: 0.2;
+        z-index: 1;
+    }
+
+    .category-card {
+        text-align: center;
+        background: var(--soft-beige);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(201,149,108,0.2);
+        }
+
+    .category-img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .category-name {
+        padding: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .product-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+    }
+
+    .product-card:hover .product-img-wrapper img {
+        transform: scale(1.08);
+    }
+</style>

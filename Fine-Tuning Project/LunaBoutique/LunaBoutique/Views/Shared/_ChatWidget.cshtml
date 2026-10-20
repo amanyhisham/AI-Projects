@@ -1,0 +1,56 @@
+﻿<!-- نوار Floating Chat Button -->
+<div class="chat-notification" id="chatNotification">
+    ✨ محتاجة مساعدة في الستايل؟
+    <button onclick="dismissNotification()" class="btn-close btn-close-white btn-sm ms-2"></button>
+</div>
+
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" type="button">
+    <i class="fas fa-comment-dots" id="chatIcon"></i>
+</button>
+
+<!-- Chat Window -->
+<div class="chat-window" id="chatWindow">
+    <!-- Header -->
+    <div class="chat-header">
+        <div class="d-flex align-items-center gap-2">
+            <div class="nowar-avatar">ن</div>
+            <div>
+                <div class="fw-bold">نوار ✨</div>
+                <div class="chat-status"><span class="status-dot"></span> متاحة الآن</div>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="btn-close btn-close-white"></button>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chatMessages">
+        <div class="message ai-message">
+            <div class="message-bubble">
+                أهلاً بيكِ في Luna Boutique! 🌙<br>
+                أنا نوار، مساعدتك الشخصية للموضة ✨<br>
+                إزاي أقدر أساعدك النهارده؟
+            </div>
+            <div class="message-time">الآن</div>
+        </div>
+    </div>
+
+    <!-- Quick Replies -->
+    <div class="quick-replies" id="quickReplies">
+        <button class="quick-btn" onclick="sendQuick('طرق الدفع؟')">💳 الدفع</button>
+        <button class="quick-btn" onclick="sendQuick('التوصيل بياخد قد إيه؟')">🚚 التوصيل</button>
+        <button class="quick-btn" onclick="sendQuick('سياسة الإرجاع؟')">↩️ الإرجاع</button>
+        <button class="quick-btn" onclick="sendQuick('عندكم إيه جديد؟')">✨ جديد</button>
+        <button class="quick-btn" onclick="sendQuick('دليل المقاسات')">📏 المقاسات</button>
+        <button class="quick-btn" onclick="sendQuick('فيه أوفر؟')">🏷️ العروض</button>
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input-area">
+        <input type="text" id="chatInput" class="chat-input"
+               placeholder="اكتبي رسالتك لنوار..."
+               onkeypress="if(event.key==='Enter') sendMessage()" />
+        <button class="send-btn" onclick="sendMessage()">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
