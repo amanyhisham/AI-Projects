@@ -1,8 +1,11 @@
 <div align="center">
 
-# 🤖 AI Applications Collection
+# 🧠 AI Applications Collection
 
-**Four practical approaches to building with LLMs — Prompt Engineering, Fine-Tuning, RAG, and AI Agents.**
+### Practical, production-minded applications built on Large Language Models
+
+Each project in this collection explores a different way of building with AI:<br>
+**Prompt Engineering**, **Fine-Tuning**, **Retrieval-Augmented Generation (RAG)**, and **AI Agents**.
 
 </div>
 
@@ -12,81 +15,82 @@
 
 | # | Project | Approach | Status | Live Demo |
 |---|---------|----------|--------|-----------|
-| 1 | [AI Chat by Prompt Engineering](./AI%20Chat%20by%20Prompt%20Engineering) | Prompt Engineering | ✅ Available | [🔗 Open demo](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/) |
-| 2 | [Luna Boutique](./Fine-Tuning%20Project/LunaBoutique) | Fine-Tuning Project (AI shopping assistant) | ✅ Available | 🔜 Coming soon |
-| 3 | RAG Project | Retrieval-Augmented Generation | 🚧 Not added yet | 🔜 Coming soon |
-| 4 | AI Agent Project | AI Agents | 🚧 Not added yet | 🔜 Coming soon |
+| 1 | AI Chat by Prompt Engineering | Prompt Engineering | ✅ Live | [🔗 Open demo](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/) |
+| 2 | Luna Boutique | AI shopping assistant (Fine-Tuning Project) | ✅ Live | [🔗 Open demo](http://luna-boutique-amany.runasp.net/) |
+| 3 | RAG Project | Retrieval-Augmented Generation | 🚧 Coming soon | — |
+| 4 | AI Agent Project | AI Agents | 🚧 Coming soon | — |
 
 ---
 
 ## 1️⃣ AI Chat by Prompt Engineering
 
-🌐 **Live Demo:** [Open live demo](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/)
-📂 **Folder:** [`AI Chat by Prompt Engineering`](./AI%20Chat%20by%20Prompt%20Engineering)
+| | |
+|---|---|
+| 🌐 **Live Demo** | [Open the application](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/) |
+| 📂 **Folder** | `AI Chat by Prompt Engineering` |
+| ☁️ **Hosting** | Vercel |
 
-**What it does:** A full-featured AI chat assistant where users hold conversations, customize the AI's behavior with their own system prompt, and attach documents or images for the AI to analyze. It shows how prompt design controls the quality and style of an LLM's answers.
+**What it is:** A full-featured AI chat website where users talk to an AI assistant, shape its behavior with their own system prompt, and attach PDFs or images for the AI to read and analyze. It demonstrates how prompt design controls the quality, tone, and usefulness of an LLM's answers.
 
-**Key highlights**
-- 💬 Multiple conversations, with rename, pin, and search (`Ctrl+K`)
+**Key features**
+- 💬 Multiple conversations with rename, pin, and search (`Ctrl+K`)
 - 🧠 Custom **system prompt** to steer the AI's behavior
-- 📄 PDF reading (text extracted in-browser with PDF.js) and 🖼️ image understanding through a vision model
+- 📄 PDF reading (text extracted in the browser with PDF.js)
+- 🖼️ Image understanding through a vision model
 - 🎙️ Voice input and 🔊 text-to-speech
 - 🔖 Bookmarked messages and chat export
-- 🌗 Light / dark theme
-- 🛡️ Global error handling so the UI never freezes
-- 💾 Chats saved in the browser (`localStorage`)
+- 🌗 Light and dark themes
+- 🛡️ Global error handling so the interface never freezes
+- 💾 Conversations saved in the browser (`localStorage`)
 
-**Tech stack**
+**Technologies**
 
-| Layer | Technologies |
-|-------|--------------|
+| Layer | Stack |
+|-------|-------|
 | Frontend | HTML, CSS, Vanilla JavaScript, PDF.js |
-| AI | Groq API — `openai/gpt-oss-120b` (chat) and `meta-llama/llama-4-scout-17b-16e-instruct` (vision) |
+| AI | Groq API — `openai/gpt-oss-120b` (chat), `meta-llama/llama-4-scout-17b-16e-instruct` (vision) |
 | Hosting | Vercel |
 
 ---
 
 ## 2️⃣ Luna Boutique
 
-🌐 **Live Demo:** 🔜 Coming soon
-📂 **Folder:** [`Fine-Tuning Project/LunaBoutique`](./Fine-Tuning%20Project/LunaBoutique)
+| | |
+|---|---|
+| 🌐 **Live Demo** | [Open the application](http://luna-boutique-amany.runasp.net/) |
+| 📂 **Folder** | `Fine-Tuning Project/LunaBoutique` |
+| ☁️ **Hosting** | MonsterASP.NET (free ASP.NET hosting) |
 
-**What it does:** An ASP.NET Core MVC boutique website with an AI shopping assistant named **Noor**. She answers customer questions in Egyptian Arabic about prices, delivery, returns, payment methods, and discounts, keeping replies short and structured.
+**What it is:** An ASP.NET Core MVC boutique website with a built-in AI shopping assistant named **Noor**. She answers customers in Egyptian Arabic about prices, delivery, returns, payment methods, and offers, with short and well-structured replies — reducing the need for manual customer support.
 
-**Key highlights**
-- 🛍️ Boutique web app built with the **MVC pattern**
-- 🤖 `ChatController` receives chat messages and returns JSON responses
-- 🧩 Service layer (`IAnthropicService` / `AnthropicService`) injected through **dependency injection**
-- 🗣️ Conversation history sent with every request, so Noor keeps context
-- 🎯 Assistant persona and store policies defined in a system prompt
-- 🔐 API key read from server configuration (`Groq:ApiKey`)
-- ⚠️ Friendly error handling for timeouts, invalid keys, and service outages
+**Key features**
+- 🛍️ Boutique web application built on the **MVC pattern**
+- 🤖 AI chat assistant with a defined persona and store policies
+- 🗣️ Conversation history sent with each request so Noor keeps context
+- 🧩 Clean service layer (`IAnthropicService` / `AnthropicService`) wired through **dependency injection**
+- 🔐 Groq API key read from server configuration (`Groq:ApiKey`), never hard-coded
+- ⚠️ Friendly handling of timeouts, invalid keys, and service outages
 
-**Tech stack**
+**Technologies**
 
-| Layer | Technologies |
-|-------|--------------|
-| Backend | C#, ASP.NET Core MVC, `HttpClient` / `IHttpClientFactory`, Newtonsoft.Json |
-| Frontend | JavaScript chat widget (`luna-chat.js`, using `fetch`) |
+| Layer | Stack |
+|-------|-------|
+| Backend | C#, ASP.NET Core MVC, `IHttpClientFactory`, Newtonsoft.Json |
+| Frontend | JavaScript chat widget (`luna-chat.js`) using `fetch` |
 | AI | Groq API — `openai/gpt-oss-120b` |
+| Hosting | MonsterASP.NET |
 
 ---
 
-## 3️⃣ RAG Project
+## 3️⃣ RAG Project — 🚧 Coming Soon
 
-🌐 **Live Demo:** 🔜 Coming soon
-📂 **Folder:** _Not added yet_
-
-**Planned:** A project where I will apply **Retrieval-Augmented Generation**, so the AI answers from the content of custom documents instead of relying only on its built-in knowledge.
+A project that will be added to this repository to apply **Retrieval-Augmented Generation**, where the AI answers from the content of custom documents instead of relying only on its built-in knowledge.
 
 ---
 
-## 4️⃣ AI Agent Project
+## 4️⃣ AI Agent Project — 🚧 Coming Soon
 
-🌐 **Live Demo:** 🔜 Coming soon
-📂 **Folder:** _Not added yet_
-
-**Planned:** A project where I will apply an **AI Agent** that can plan steps and use tools to complete tasks.
+A project that will be added to this repository to apply an **AI Agent** that can plan steps and use tools to complete tasks.
 
 ---
 
@@ -94,6 +98,14 @@
 
 API keys are **never** stored in this repository. Each project reads its key from configuration or environment variables.
 
-## 👩‍💻 Author
+---
 
-**Amany Hesham Salah**
+<div align="center">
+
+## ✍️ Author
+
+# *Amany Hesham Salah*
+
+**Junior Software Engineer · AI Application Developer**
+
+</div>
