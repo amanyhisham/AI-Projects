@@ -1,87 +1,99 @@
+<div align="center">
+
 # 🤖 AI Applications Collection
 
-A collection of AI-powered web applications showcasing four core approaches to building with Large Language Models: **Prompt Engineering**, **Fine-Tuning**, **Retrieval-Augmented Generation (RAG)**, and **AI Agents**.
+**Four practical approaches to building with LLMs — Prompt Engineering, Fine-Tuning, RAG, and AI Agents.**
 
-> 🚧 This repository is a work in progress. Two projects are available now; the other two are planned and marked **Coming Soon**.
+</div>
 
 ---
 
-## 📚 Projects Overview
+## 📚 Projects at a Glance
 
 | # | Project | Approach | Status | Live Demo |
 |---|---------|----------|--------|-----------|
-| 1 | [AI Chat by Prompt Engineering](./AI%20Chat%20by%20Prompt%20Engineering) | Prompt Engineering | ✅ Available | 🔜 Coming soon |
-| 2 | [Luna Boutique](./Fine-Tuning%20Project/LunaBoutique) | Fine-Tuning / AI chat assistant | ✅ Available | 🔜 Coming soon |
-| 3 | RAG Project | Retrieval-Augmented Generation | 🚧 Planned | 🔜 Coming soon |
-| 4 | AI Agent Project | AI Agents | 🚧 Planned | 🔜 Coming soon |
+| 1 | [AI Chat by Prompt Engineering](./AI%20Chat%20by%20Prompt%20Engineering) | Prompt Engineering | ✅ Available | [🔗 Open demo](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/) |
+| 2 | [Luna Boutique](./Fine-Tuning%20Project/LunaBoutique) | Fine-Tuning Project (AI shopping assistant) | ✅ Available | 🔜 Coming soon |
+| 3 | RAG Project | Retrieval-Augmented Generation | 🚧 Not added yet | 🔜 Coming soon |
+| 4 | AI Agent Project | AI Agents | 🚧 Not added yet | 🔜 Coming soon |
 
 ---
 
 ## 1️⃣ AI Chat by Prompt Engineering
 
-A browser-based AI chat application built with JavaScript. It connects to the Groq API and uses the `openai/gpt-oss-120b` model for chat, with a separate vision model for image understanding.
+🌐 **Live Demo:** [Open live demo](https://ai-chat-demo-qflts2unc-amany-hesham.vercel.app/)
+📂 **Folder:** [`AI Chat by Prompt Engineering`](./AI%20Chat%20by%20Prompt%20Engineering)
 
-**Highlights (from the source code):**
-- Streaming chat responses
-- Multiple saved conversations stored in the browser (`localStorage`)
-- Custom system prompt support
-- Light / dark theme
-- Bookmarked messages
-- Voice input (speech recognition) and text-to-speech
-- File / image attachments
-- Global error handling so the UI never freezes
+**What it does:** A full-featured AI chat assistant where users hold conversations, customize the AI's behavior with their own system prompt, and attach documents or images for the AI to analyze. It shows how prompt design controls the quality and style of an LLM's answers.
 
-**Tech:** HTML, CSS, JavaScript, Groq API
+**Key highlights**
+- 💬 Multiple conversations, with rename, pin, and search (`Ctrl+K`)
+- 🧠 Custom **system prompt** to steer the AI's behavior
+- 📄 PDF reading (text extracted in-browser with PDF.js) and 🖼️ image understanding through a vision model
+- 🎙️ Voice input and 🔊 text-to-speech
+- 🔖 Bookmarked messages and chat export
+- 🌗 Light / dark theme
+- 🛡️ Global error handling so the UI never freezes
+- 💾 Chats saved in the browser (`localStorage`)
 
-📂 Folder: `AI Chat by Prompt Engineering`
-🌐 Live demo: _Coming soon_
+**Tech stack**
+
+| Layer | Technologies |
+|-------|--------------|
+| Frontend | HTML, CSS, Vanilla JavaScript, PDF.js |
+| AI | Groq API — `openai/gpt-oss-120b` (chat) and `meta-llama/llama-4-scout-17b-16e-instruct` (vision) |
+| Hosting | Vercel |
 
 ---
 
 ## 2️⃣ Luna Boutique
 
-An ASP.NET Core MVC web application for a boutique, with an integrated AI chat assistant that generates responses through the Groq API.
+🌐 **Live Demo:** 🔜 Coming soon
+📂 **Folder:** [`Fine-Tuning Project/LunaBoutique`](./Fine-Tuning%20Project/LunaBoutique)
 
-**Highlights (from the source code):**
-- `ChatController` exposing the chat endpoint
-- Service layer (`IAnthropicService` / `AnthropicService`) injected via dependency injection
-- Server-side calls to Groq's chat completions endpoint, so the API key stays on the server
-- Front-end chat widget in `wwwroot/js/luna-chat.js`
-- API key read from configuration (`Groq:ApiKey`)
+**What it does:** An ASP.NET Core MVC boutique website with an AI shopping assistant named **Noor**. She answers customer questions in Egyptian Arabic about prices, delivery, returns, payment methods, and discounts, keeping replies short and structured.
 
-**Tech:** C#, ASP.NET Core MVC, JavaScript, Groq API
+**Key highlights**
+- 🛍️ Boutique web app built with the **MVC pattern**
+- 🤖 `ChatController` receives chat messages and returns JSON responses
+- 🧩 Service layer (`IAnthropicService` / `AnthropicService`) injected through **dependency injection**
+- 🗣️ Conversation history sent with every request, so Noor keeps context
+- 🎯 Assistant persona and store policies defined in a system prompt
+- 🔐 API key read from server configuration (`Groq:ApiKey`)
+- ⚠️ Friendly error handling for timeouts, invalid keys, and service outages
 
-📂 Folder: `Fine-Tuning Project/LunaBoutique`
-🌐 Live demo: _Coming soon_
+**Tech stack**
+
+| Layer | Technologies |
+|-------|--------------|
+| Backend | C#, ASP.NET Core MVC, `HttpClient` / `IHttpClientFactory`, Newtonsoft.Json |
+| Frontend | JavaScript chat widget (`luna-chat.js`, using `fetch`) |
+| AI | Groq API — `openai/gpt-oss-120b` |
 
 ---
 
-## 3️⃣ RAG Project — 🔜 Coming Soon
+## 3️⃣ RAG Project
 
-A Retrieval-Augmented Generation application where the AI answers questions using the content of custom documents instead of relying only on the model's built-in knowledge.
+🌐 **Live Demo:** 🔜 Coming soon
+📂 **Folder:** _Not added yet_
 
-📂 Folder: _Not added yet_
-🌐 Live demo: _Coming soon_
+**Planned:** A project where I will apply **Retrieval-Augmented Generation**, so the AI answers from the content of custom documents instead of relying only on its built-in knowledge.
 
 ---
 
-## 4️⃣ AI Agent Project — 🔜 Coming Soon
+## 4️⃣ AI Agent Project
 
-An AI agent application where the model can plan steps and use tools to complete tasks.
+🌐 **Live Demo:** 🔜 Coming soon
+📂 **Folder:** _Not added yet_
 
-📂 Folder: _Not added yet_
-🌐 Live demo: _Coming soon_
+**Planned:** A project where I will apply an **AI Agent** that can plan steps and use tools to complete tasks.
 
 ---
 
 ## 🔐 Security Note
 
-API keys are **never** stored in this repository. Each project reads its key from configuration or environment variables. See each project's README for setup details.
+API keys are **never** stored in this repository. Each project reads its key from configuration or environment variables.
 
 ## 👩‍💻 Author
 
 **Amany Hesham Salah**
-
-## 🔗 GitHub
-
-[github.com/amanyhisham/AI-Projects](https://github.com/amanyhisham/AI-Projects)
